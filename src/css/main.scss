@@ -1,0 +1,255 @@
+@import "mixins";
+@import "base";
+
+.intro {
+	width: 100%;
+	height: 100%;
+	min-height: 48rem;
+
+	.navbar {
+		width: 100%;
+		height: 5rem;
+		position: absolute;
+		top: 0;
+		@include breakpoint(phone) {
+			height: 8rem;
+		}
+
+		.img-container {
+			width: 12%;
+			max-width: 55px;
+			position: relative;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+
+	.intro-container {
+		@include vertical-center();
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		overflow: hidden;
+		@include breakpoint(desktop) {
+			max-width: 90rem;
+			display: flex;
+			align-items: center;
+			margin-top: 4rem;
+			margin-bottom: 4rem;
+		}
+		@include breakpoint(large) {
+			width: 75%;
+			max-width: 99rem;
+		}
+
+		.img-container {
+			width: 40%;
+			margin: 2rem auto 2rem;
+			@include breakpoint(phone) {
+				width: 55%;
+				max-width: 20rem;
+				margin-top: 0;
+				margin-bottom: 3rem;
+			}
+			@include breakpoint(desktop) {
+				width: 100%;
+				max-width: 27rem;
+				margin-top: 0;
+				margin-bottom: 0;
+				margin-right: 6rem;
+			}
+		}
+
+		.paragraph-text {
+			text-align: center;
+			color: #22415a;
+			@include breakpoint(tiny) {
+				font-size: 1.4rem;
+			}
+			@include breakpoint(desktop) {
+				text-align: left;
+				line-height: 1.6;
+				font-size: 1.6rem;
+			}
+			@include breakpoint(large) {
+				font-size: 1.8rem;
+			}
+		}
+	}
+
+	.arrow-container {
+		width: 2rem;
+		height: 2rem;
+		position: absolute;
+		bottom: 4%;
+		left: 50%;
+		transform: translateX(-50%);
+		cursor: pointer;
+		animation: tiny-hovering 0.6s ease-out infinite alternate;
+		@include breakpoint(phone) {
+			bottom: 7%;
+			animation: hovering 0.6s ease-out infinite alternate;
+		}
+	}
+
+	.arrow {
+		@include arrow();
+	}
+}
+
+.capabilities {
+	padding-top: 3rem;
+
+	img {
+		width: 170%;
+		min-width: 135rem;
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+		transform-origin: center center;
+		@include breakpoint(larger) {
+			width: 140%;
+		}
+	}
+
+	.text-container {
+		width: 100%;
+		position: absolute;
+		top: 48%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		.heading {
+			margin-bottom: 1.2rem;
+			color: white;
+			@include breakpoint(desktop) {
+				margin-bottom: 2rem;
+			}
+		}
+
+		ul {
+			padding-left: 1rem;
+			padding-right: 1rem;
+			text-align: center;
+			color: white;
+
+			li {
+				margin-bottom: 1rem;
+				@include breakpoint(desktop) {
+					font-size: 1.8rem;
+				}
+				@include breakpoint(large) {
+					font-size: 2rem;
+				}
+			}
+		}
+	}
+}
+
+.collaborate {
+	width: 100%;
+
+	.heading {
+		margin-bottom: 2rem;
+		color: #22415a;
+		line-height: 1.2;
+	}
+
+	form {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+
+		.text-input,
+		#dropdown {
+			@include placeholder();
+			width: 100%;
+			max-width: 36rem;
+			height: 3.5rem;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 0.5rem;
+			padding-left: 1rem;
+			padding-right: 1rem;
+			border: 1px solid #22415a;
+			color: #e86028;
+			background-color: transparent;
+			border-radius: 3px;
+			font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+			font-size: 1.4rem;
+			text-transform: uppercase;
+			display: block;
+			&:focus {
+				color: #e86028;
+			}
+			@include breakpoint(desktop) {
+				width: 45%;
+				max-width: 60rem;
+				height: 4rem;
+				margin-bottom: 1rem;
+			}
+		}
+
+		#dropdown {
+			padding-left: 0.7rem;
+			padding-right: 0.7rem;
+			color: #22415a;
+			&:focus {
+				color: #22415a;
+			}
+		}
+
+		.submit {
+			width: 11rem;
+			display: block;
+			margin: 2rem auto;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+			text-transform: uppercase;
+			color: white;
+			box-shadow: none;
+			border: none;
+			font-size: 1.6rem;
+			background-color: #e86028;
+			cursor: pointer;
+		}
+	}
+}
+
+footer {
+	text-align: center;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+
+	.img-container {
+		width: 65%;
+		max-width: 25rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.social-link {
+		margin-top: 3rem;
+		margin-left: 0.8rem;
+		margin-right: 0.8rem;
+		display: inline-block;
+
+		img {
+			width: auto;
+			height: 1.6rem;
+		}
+	}
+}
+
+@include keyframes(tiny-hovering) {
+	to {
+		bottom: 3%;
+	}
+}
+
+@include keyframes(hovering) {
+	to {
+		bottom: 6%;
+	}
+}
