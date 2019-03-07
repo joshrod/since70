@@ -107,10 +107,92 @@ ul {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
 
+/* CENTER VERTICALLY */
+/* MEDIA QUERIES (ADD IF MORE ARE NEEDED) */
+/* KEYFRAMES */
+/* CLEARFIX MIXIN */
+section {
+  zoom: 1;
+}
+
+section:before, section:after {
+  content: " ";
+  display: table;
+}
+
+section:after {
+  clear: both;
+}
+
+/* INPUT PLACEHOLDER */
+@-webkit-keyframes tiny-hovering {
+  to {
+    bottom: 1%;
+  }
+}
+
+@keyframes tiny-hovering {
+  to {
+    bottom: 1%;
+  }
+}
+
+@-webkit-keyframes hovering {
+  to {
+    bottom: 3%;
+  }
+}
+
+@keyframes hovering {
+  to {
+    bottom: 3%;
+  }
+}
+
+@-webkit-keyframes mobile-intro {
+  from {
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+    opacity: 0;
+  }
+}
+
+@keyframes mobile-intro {
+  from {
+    -webkit-transform: translateY(30%);
+            transform: translateY(30%);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 .intro {
   width: 100%;
   height: 100%;
   min-height: 48rem;
+}
+
+@media only screen and (min-width: 360px) {
+  .intro {
+    min-height: 60rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .intro {
+    height: 75%;
+  }
 }
 
 .intro .navbar {
@@ -145,6 +227,7 @@ ul {
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
+  max-width: 36rem;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -171,14 +254,23 @@ ul {
 .intro .intro-container .img-container {
   width: 40%;
   margin: 2rem auto 2rem;
+  opacity: 1;
+  -webkit-animation: mobile-intro 0.7s ease-in-out;
+          animation: mobile-intro 0.7s ease-in-out;
 }
 
 @media only screen and (min-width: 360px) {
   .intro .intro-container .img-container {
-    width: 55%;
+    width: 60%;
     max-width: 20rem;
     margin-top: 0;
     margin-bottom: 3rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .intro .intro-container .img-container {
+    margin-bottom: 4rem;
   }
 }
 
@@ -195,11 +287,15 @@ ul {
 .intro .intro-container .paragraph-text {
   text-align: center;
   color: #22415a;
+  font-size: 1.4rem;
+  -webkit-animation: fadeIn 0.7s ease-in 0.7s forwards;
+          animation: fadeIn 0.7s ease-in 0.7s forwards;
+  opacity: 0;
 }
 
-@media only screen and (max-height: 567px) and (orientation: portrait) {
+@media only screen and (min-width: 360px) {
   .intro .intro-container .paragraph-text {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -221,7 +317,7 @@ ul {
   width: 2rem;
   height: 2rem;
   position: absolute;
-  bottom: 4%;
+  bottom: 2%;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -232,9 +328,15 @@ ul {
 
 @media only screen and (min-width: 360px) {
   .intro .arrow-container {
-    bottom: 7%;
+    bottom: 4%;
     -webkit-animation: hovering 0.6s ease-out infinite alternate;
             animation: hovering 0.6s ease-out infinite alternate;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .intro .arrow-container {
+    display: none;
   }
 }
 
@@ -270,7 +372,7 @@ ul {
 .capabilities .text-container {
   width: 100%;
   position: absolute;
-  top: 48%;
+  top: 47%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
@@ -442,29 +544,5 @@ footer .social-link {
 footer .social-link img {
   width: auto;
   height: 1.6rem;
-}
-
-@-webkit-keyframes tiny-hovering {
-  to {
-    bottom: 3%;
-  }
-}
-
-@keyframes tiny-hovering {
-  to {
-    bottom: 3%;
-  }
-}
-
-@-webkit-keyframes hovering {
-  to {
-    bottom: 6%;
-  }
-}
-
-@keyframes hovering {
-  to {
-    bottom: 6%;
-  }
 }
 /*# sourceMappingURL=main.css.map */

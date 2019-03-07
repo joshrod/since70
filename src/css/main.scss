@@ -1,10 +1,17 @@
 @import "mixins";
 @import "base";
+@import "animations";
 
 .intro {
 	width: 100%;
 	height: 100%;
 	min-height: 48rem;
+	@include breakpoint(phone) {
+		min-height: 60rem;
+	}
+	@include breakpoint(tablet) {
+		height: 75%;
+	}
 
 	.navbar {
 		width: 100%;
@@ -31,6 +38,7 @@
 		margin-left: auto;
 		margin-right: auto;
 		overflow: hidden;
+		max-width: 36rem;
 		@include breakpoint(desktop) {
 			max-width: 90rem;
 			display: flex;
@@ -46,11 +54,16 @@
 		.img-container {
 			width: 40%;
 			margin: 2rem auto 2rem;
+			opacity: 1;
+			animation: mobile-intro 0.7s ease-in-out;
 			@include breakpoint(phone) {
-				width: 55%;
+				width: 60%;
 				max-width: 20rem;
 				margin-top: 0;
 				margin-bottom: 3rem;
+			}
+			@include breakpoint(tablet) {
+				margin-bottom: 4rem;
 			}
 			@include breakpoint(desktop) {
 				width: 100%;
@@ -64,8 +77,11 @@
 		.paragraph-text {
 			text-align: center;
 			color: #22415a;
-			@include breakpoint(tiny) {
-				font-size: 1.4rem;
+			font-size: 1.4rem;
+			animation: fadeIn 0.7s ease-in 0.7s forwards;
+			opacity: 0;
+			@include breakpoint(phone) {
+				font-size: 1.6rem;
 			}
 			@include breakpoint(desktop) {
 				text-align: left;
@@ -82,14 +98,17 @@
 		width: 2rem;
 		height: 2rem;
 		position: absolute;
-		bottom: 4%;
+		bottom: 2%;
 		left: 50%;
 		transform: translateX(-50%);
 		cursor: pointer;
 		animation: tiny-hovering 0.6s ease-out infinite alternate;
 		@include breakpoint(phone) {
-			bottom: 7%;
+			bottom: 4%;
 			animation: hovering 0.6s ease-out infinite alternate;
+		}
+		@include breakpoint(tablet) {
+			display: none;
 		}
 	}
 
@@ -116,7 +135,7 @@
 	.text-container {
 		width: 100%;
 		position: absolute;
-		top: 48%;
+		top: 47%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 
@@ -239,17 +258,5 @@ footer {
 			width: auto;
 			height: 1.6rem;
 		}
-	}
-}
-
-@include keyframes(tiny-hovering) {
-	to {
-		bottom: 3%;
-	}
-}
-
-@include keyframes(hovering) {
-	to {
-		bottom: 6%;
 	}
 }

@@ -1,0 +1,26 @@
+@import "mixins";
+
+@include keyframes(tiny-hovering) {
+	to {
+		bottom: 1%;
+	}
+}
+
+@include keyframes(hovering) {
+	to {
+		bottom: 3%;
+	}
+}
+
+@include keyframes(mobile-intro) {
+	from {
+		transform: translateY(30%);
+		opacity: 0;
+	}
+}
+
+@include keyframes(fadeIn) {
+	to {
+		opacity: 1;
+	}
+}
