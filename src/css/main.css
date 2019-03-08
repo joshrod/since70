@@ -58,7 +58,6 @@ body {
 }
 
 section {
-  overflow-x: hidden;
   position: relative;
 }
 
@@ -252,7 +251,6 @@ ul {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   opacity: 0;
-  cursor: pointer;
   -webkit-animation: tiny-hovering 0.6s ease-out infinite alternate, fadeIn 0.7s ease-out 1.4s forwards;
           animation: tiny-hovering 0.6s ease-out infinite alternate, fadeIn 0.7s ease-out 1.4s forwards;
 }
@@ -276,6 +274,7 @@ ul {
 .capabilities {
   padding-top: 3rem;
   height: 120rem;
+  overflow-x: hidden;
 }
 
 @media only screen and (min-width: 794px) {
@@ -426,6 +425,35 @@ ul {
   line-height: 1.2;
 }
 
+.collaborate .screen-reader-response {
+  display: none;
+}
+
+.collaborate .work-button {
+  display: none;
+  width: 13rem;
+  margin: 2rem auto;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  color: white;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  font-size: 1.6rem;
+  background-color: #e86028;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: 0.4s background-color;
+  transition: 0.4s background-color;
+}
+
+.collaborate .work-button:hover {
+  background-color: #ff811f;
+}
+
 .collaborate form {
   margin-left: auto;
   margin-right: auto;
@@ -433,7 +461,6 @@ ul {
   padding-right: 1.5rem;
   width: 100%;
   max-width: 36rem;
-  position: relative;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -448,11 +475,10 @@ ul {
   height: 3.5rem;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
   border: 1px solid #22415a;
-  color: #e86028;
+  color: #22415a;
   background-color: transparent;
   border-radius: 3px;
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
@@ -496,7 +522,6 @@ ul {
 @media only screen and (min-width: 1024px) {
   .collaborate form .text-input {
     height: 4rem;
-    margin-bottom: 1rem;
   }
 }
 
@@ -525,6 +550,7 @@ ul {
   height: 0;
   border: 6px solid #22415a;
   border-color: #22415a transparent transparent transparent;
+  z-index: 99;
 }
 
 .collaborate form .select-selected.select-arrow-active:after {
@@ -534,7 +560,7 @@ ul {
 
 .collaborate form .select-selected {
   color: #22415a;
-  padding: 1rem 1.6rem;
+  padding: 1rem 1.2rem;
   border: 1px solid #22415a;
   border-radius: 3px;
   cursor: pointer;
@@ -542,22 +568,24 @@ ul {
 
 .collaborate form .select-items div {
   border-bottom: 1px solid #22415a;
-  color: #22415a;
-  padding: 1rem 1.6rem;
+  padding: 1rem 1.2rem;
   border-left: 1px solid #22415a;
   border-right: 1px solid #22415a;
   border-bottom: 1px solid #22415a;
   border-radius: 3px;
   cursor: pointer;
+  overflow: auto;
 }
 
 .collaborate form .select-items {
   position: absolute;
+  color: #22415a;
   background-color: #fbf4d2;
   top: 100%;
   left: 0;
   right: 0;
   z-index: 99;
+  overflow: hidden;
 }
 
 .collaborate form .select-hide {
@@ -566,7 +594,8 @@ ul {
 
 .collaborate form .select-items div:hover,
 .collaborate form .same-as-selected {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #e86028;
+  color: #fbf4d2;
 }
 
 .collaborate form .lets-talk {
@@ -590,6 +619,33 @@ ul {
 
 .collaborate form .lets-talk:hover {
   background-color: #ff811f;
+}
+
+.collaborate form .wpcf7-response-output {
+  margin-top: 5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: #22415a;
+  opacity: 0;
+  -webkit-animation: fadeIn 0.7s ease-in 0.7s forwards;
+          animation: fadeIn 0.7s ease-in 0.7s forwards;
+}
+
+.collaborate form .wpcf7-not-valid-tip {
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  color: #e86028;
+  font-size: 1.4rem;
+}
+
+.collaborate form .wpcf7-form-control-wrap {
+  margin-bottom: 0.5rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  .collaborate form .wpcf7-form-control-wrap {
+    margin-bottom: 1rem;
+  }
 }
 
 footer {

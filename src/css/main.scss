@@ -107,7 +107,6 @@
 		left: 50%;
 		transform: translateX(-50%);
 		opacity: 0;
-		cursor: pointer;
 		animation: tiny-hovering 0.6s ease-out infinite alternate,
 			fadeIn 0.7s ease-out 1.4s forwards;
 		@include breakpoint(phone) {
@@ -128,6 +127,7 @@
 .capabilities {
 	padding-top: 3rem;
 	height: 120rem;
+	overflow-x: hidden;
 	@include breakpoint(bubble) {
 		height: 158vw;
 	}
@@ -238,6 +238,32 @@
 		line-height: 1.2;
 	}
 
+	.screen-reader-response {
+		display: none;
+	}
+
+	.work-button {
+		display: none;
+		width: 13rem;
+		margin: 2rem auto;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+		text-transform: uppercase;
+		color: white;
+		box-shadow: none;
+		border: none;
+		font-size: 1.6rem;
+		background-color: #e86028;
+		text-decoration: none;
+		text-align: center;
+		cursor: pointer;
+		transition: 0.4s background-color;
+		&:hover {
+			background-color: #ff811f;
+		}
+	}
+
 	form {
 		margin-left: auto;
 		margin-right: auto;
@@ -245,7 +271,6 @@
 		padding-right: 1.5rem;
 		width: 100%;
 		max-width: 36rem;
-		position: relative;
 		@include breakpoint(desktop) {
 			width: 45%;
 			max-width: 60rem;
@@ -259,11 +284,11 @@
 			height: 3.5rem;
 			margin-left: auto;
 			margin-right: auto;
-			margin-bottom: 0.5rem;
+			// margin-bottom: 0.5rem;
 			padding-left: 1rem;
 			padding-right: 1rem;
 			border: 1px solid #22415a;
-			color: #e86028;
+			color: #22415a;
 			background-color: transparent;
 			border-radius: 3px;
 			font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
@@ -275,7 +300,7 @@
 			}
 			@include breakpoint(desktop) {
 				height: 4rem;
-				margin-bottom: 1rem;
+				// margin-bottom: 1rem;
 			}
 		}
 
@@ -321,6 +346,7 @@
 				height: 0;
 				border: 6px solid #22415a;
 				border-color: #22415a transparent transparent transparent;
+				z-index: 99;
 			}
 		}
 
@@ -333,7 +359,7 @@
 
 		.select-selected {
 			color: #22415a;
-			padding: 1rem 1.6rem;
+			padding: 1rem 1.2rem;
 			border: 1px solid #22415a;
 			border-radius: 3px;
 			cursor: pointer;
@@ -341,22 +367,25 @@
 
 		.select-items div {
 			border-bottom: 1px solid #22415a;
-			color: #22415a;
-			padding: 1rem 1.6rem;
+			// color: #22415a;
+			padding: 1rem 1.2rem;
 			border-left: 1px solid #22415a;
 			border-right: 1px solid #22415a;
 			border-bottom: 1px solid #22415a;
 			border-radius: 3px;
 			cursor: pointer;
+			overflow: auto;
 		}
 
 		.select-items {
 			position: absolute;
+			color: #22415a;
 			background-color: #fbf4d2;
 			top: 100%;
 			left: 0;
 			right: 0;
 			z-index: 99;
+			overflow: hidden;
 		}
 
 		.select-hide {
@@ -365,7 +394,8 @@
 
 		.select-items div:hover,
 		.same-as-selected {
-			background-color: rgba(0, 0, 0, 0.1);
+			background-color: #e86028;
+			color: #fbf4d2;
 		}
 
 		.lets-talk {
@@ -385,6 +415,29 @@
 			transition: 0.4s background-color;
 			&:hover {
 				background-color: #ff811f;
+			}
+		}
+
+		.wpcf7-response-output {
+			margin-top: 5rem;
+			text-align: center;
+			margin-bottom: 2rem;
+			font-family: "Roboto", Arial, Helvetica, sans-serif;
+			color: #22415a;
+			opacity: 0;
+			animation: fadeIn 0.7s ease-in 0.7s forwards;
+		}
+
+		.wpcf7-not-valid-tip {
+			font-family: "Roboto", Arial, Helvetica, sans-serif;
+			color: #e86028;
+			font-size: 1.4rem;
+		}
+
+		.wpcf7-form-control-wrap {
+			margin-bottom: 0.5rem;
+			@include breakpoint(desktop) {
+				margin-bottom: 1rem;
 			}
 		}
 	}
