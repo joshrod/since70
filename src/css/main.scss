@@ -1,11 +1,11 @@
 @import "mixins";
 @import "base";
-@import "animations";
 
 .intro {
 	width: 100%;
 	height: 100%;
 	min-height: 48rem;
+	position: relative;
 	@include breakpoint(phone) {
 		min-height: 60rem;
 	}
@@ -31,6 +31,11 @@
 			transform: translate(-50%, -50%);
 		}
 	}
+	// .container-container {
+	// 	width: 100%;
+	// 	height: 100%;
+	// 	display: block;
+	// }
 
 	.intro-container {
 		@include vertical-center();
@@ -101,14 +106,17 @@
 		bottom: 2%;
 		left: 50%;
 		transform: translateX(-50%);
+		opacity: 0;
 		cursor: pointer;
-		animation: tiny-hovering 0.6s ease-out infinite alternate;
+		animation: tiny-hovering 0.6s ease-out infinite alternate,
+			fadeIn 0.7s ease-out 1.4s forwards;
 		@include breakpoint(phone) {
 			bottom: 4%;
-			animation: hovering 0.6s ease-out infinite alternate;
+			animation: hovering 0.6s ease-out infinite alternate,
+				fadeIn 0.7s ease-out 1.4s forwards;
 		}
 		@include breakpoint(tablet) {
-			display: none;
+			// display: none;
 		}
 	}
 
@@ -119,29 +127,80 @@
 
 .capabilities {
 	padding-top: 3rem;
+	height: 120rem;
+	@include breakpoint(bubble) {
+		height: 158vw;
+	}
+	@include breakpoint(larger) {
+		height: 130vw;
+	}
 
 	img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		transform-origin: center center;
+	}
+
+	#purple-bubble {
 		width: 170%;
 		min-width: 135rem;
-		position: relative;
-		left: 50%;
-		transform: translateX(-50%);
-		transform-origin: center center;
 		@include breakpoint(larger) {
-			width: 140%;
+			width: 142%;
+		}
+	}
+
+	#ltblue-bubble {
+		width: 158.334%;
+		min-width: 126.6rem;
+		@include breakpoint(larger) {
+			width: 133%;
+		}
+	}
+
+	#orange-bubble {
+		width: 146.666%;
+		min-width: 118.2rem;
+		@include breakpoint(larger) {
+			width: 126%;
+		}
+	}
+
+	#yellow-bubble {
+		width: 135%;
+		min-width: 109.8rem;
+		@include breakpoint(larger) {
+			width: 119%;
+		}
+	}
+
+	#green-bubble {
+		width: 123.333%;
+		min-width: 101.4rem;
+		@include breakpoint(larger) {
+			width: 112%;
+		}
+	}
+
+	#blue-bubble {
+		width: 111.666%;
+		min-width: 93rem;
+		@include breakpoint(larger) {
+			width: 103%;
 		}
 	}
 
 	.text-container {
 		width: 100%;
 		position: absolute;
-		top: 47%;
+		top: 48%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 
 		.heading {
 			margin-bottom: 1.2rem;
-			color: white;
+			color: #fbf4d2;
 			@include breakpoint(desktop) {
 				margin-bottom: 2rem;
 			}
@@ -168,6 +227,10 @@
 
 .collaborate {
 	width: 100%;
+	margin-top: -20%;
+	@include breakpoint(tablet) {
+		margin-top: -10%;
+	}
 
 	.heading {
 		margin-bottom: 2rem;
@@ -176,14 +239,23 @@
 	}
 
 	form {
+		margin-left: auto;
+		margin-right: auto;
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
+		width: 100%;
+		max-width: 36rem;
+		position: relative;
+		@include breakpoint(desktop) {
+			width: 45%;
+			max-width: 60rem;
+		}
 
-		.text-input,
-		#dropdown {
+		.text-input
+		// #dropdown 
+		 {
 			@include placeholder();
 			width: 100%;
-			max-width: 36rem;
 			height: 3.5rem;
 			margin-left: auto;
 			margin-right: auto;
@@ -202,23 +274,101 @@
 				color: #e86028;
 			}
 			@include breakpoint(desktop) {
-				width: 45%;
-				max-width: 60rem;
 				height: 4rem;
 				margin-bottom: 1rem;
 			}
 		}
 
-		#dropdown {
-			padding-left: 0.7rem;
-			padding-right: 0.7rem;
-			color: #22415a;
-			&:focus {
-				color: #22415a;
+		// #dropdown {
+		// 	padding-left: 0.7rem;
+		// 	padding-right: 0.7rem;
+		// 	color: #22415a;
+		// 	-webkit-appearance: none;
+		// 	-moz-appearance: none;
+		// 	appearance: none;
+		// 	background-image: url("https://www.andadv.com/wp-content/uploads/2019/03/down-arrow.png");
+		// 	background-repeat: no-repeat;
+		// 	background-position: 99% center;
+		// 	background-size: 2rem 1rem;
+		// 	&:focus {
+		// 		color: #22415a;
+		// 	}
+		// 	@include breakpoint(desktop) {
+		// 		margin-bottom: 3rem;
+		// 	}
+		// }
+
+		.custom-select {
+			width: 100%;
+			font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
+			position: relative;
+			text-transform: uppercase;
+			font-size: 1.4rem;
+
+			select {
+				display: none;
 			}
 		}
 
-		.submit {
+		.select-selected {
+			background-color: transparent;
+			&:after {
+				position: absolute;
+				content: "";
+				top: 1.4rem;
+				right: 1rem;
+				width: 0;
+				height: 0;
+				border: 6px solid #22415a;
+				border-color: #22415a transparent transparent transparent;
+			}
+		}
+
+		.select-selected.select-arrow-active {
+			&:after {
+				border-color: transparent transparent #22415a transparent;
+				top: 0.7rem;
+			}
+		}
+
+		.select-selected {
+			color: #22415a;
+			padding: 1rem 1.6rem;
+			border: 1px solid #22415a;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.select-items div {
+			border-bottom: 1px solid #22415a;
+			color: #22415a;
+			padding: 1rem 1.6rem;
+			border-left: 1px solid #22415a;
+			border-right: 1px solid #22415a;
+			border-bottom: 1px solid #22415a;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+
+		.select-items {
+			position: absolute;
+			background-color: #fbf4d2;
+			top: 100%;
+			left: 0;
+			right: 0;
+			z-index: 99;
+		}
+
+		.select-hide {
+			display: none;
+		}
+
+		.select-items div:hover,
+		.same-as-selected {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+
+		.lets-talk {
 			width: 11rem;
 			display: block;
 			margin: 2rem auto;
@@ -232,6 +382,10 @@
 			font-size: 1.6rem;
 			background-color: #e86028;
 			cursor: pointer;
+			transition: 0.4s background-color;
+			&:hover {
+				background-color: #ff811f;
+			}
 		}
 	}
 }
@@ -240,6 +394,10 @@ footer {
 	text-align: center;
 	padding-top: 5rem;
 	padding-bottom: 5rem;
+	@include breakpoint(larger) {
+		padding-top: 10rem;
+		padding-bottom: 10rem;
+	}
 
 	.img-container {
 		width: 65%;
@@ -258,5 +416,100 @@ footer {
 			width: auto;
 			height: 1.6rem;
 		}
+	}
+}
+
+.hidden {
+	opacity: 0;
+}
+
+.fadeIn-bubble {
+	animation: fadeIn 0.7s forwards;
+}
+
+.fromTop {
+	animation: fromTop 0.7s forwards;
+}
+
+.slideLeft {
+	animation: slideLeft 0.7s forwards;
+}
+
+.grow {
+	animation: growth 0.7s forwards;
+}
+
+@include keyframes(tiny-hovering) {
+	to {
+		bottom: 1%;
+	}
+}
+
+@include keyframes(hovering) {
+	to {
+		bottom: 3%;
+	}
+}
+
+@include keyframes(mobile-intro) {
+	from {
+		transform: translateY(40%);
+		opacity: 0;
+	}
+}
+
+@include keyframes(fadeIn) {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@include keyframes(pulsate) {
+	50% {
+		width: 150rem;
+	}
+	100% {
+		width: 135rem;
+	}
+}
+
+@include keyframes(bubblePulse) {
+	50% {
+		width: 175%;
+	}
+	100% {
+		width: 170%;
+	}
+}
+
+@include keyframes(largerPulse) {
+	50% {
+		width: 145%;
+	}
+	100% {
+		width: 140%;
+	}
+}
+
+@include keyframes(fromTop) {
+	from {
+		transform: translateY(-40%);
+		opacity: 0;
+	}
+}
+
+@include keyframes(slideLeft) {
+	from {
+		transform: translateX(-2%);
+		opacity: 0;
+	}
+}
+
+@include keyframes(growth) {
+	from {
+		width: 0;
 	}
 }

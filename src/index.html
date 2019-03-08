@@ -38,51 +38,111 @@
 					mediums and the timeless business practices that got us here.
 				</p>
 			</div>
-			<a class="arrow-container" href="#capabilities-heading">
+			<div class="arrow-container">
 				<div class="arrow"></div>
-			</a>
+			</div>
 		</section>
 		<section class="capabilities">
-			<img
+			<!-- <img
 				class="bubble-bg"
 				src="https://www.andadv.com/wp-content/uploads/2019/03/amg_bubble.png"
 				alt="Anderson Marketing Group"
+			/> -->
+			<img
+				src="https://www.andadv.com/wp-content/uploads/2019/03/AMG_Since70-Bubble_663856.svg"
+				alt=""
+				class="bubble-bg"
+				id="purple-bubble"
+			/>
+			<img
+				src="https://www.andadv.com/wp-content/uploads/2019/03/AMG_Since70-Bubble_D6E9C3.svg"
+				alt=""
+				class="bubble-bg hidden"
+				id="ltblue-bubble"
+			/>
+			<img
+				src="https://www.andadv.com/wp-content/uploads/2019/03/AMG_Since70-Bubble_E86028.svg"
+				alt=""
+				class="bubble-bg hidden"
+				id="orange-bubble"
+			/>
+			<img
+				src="https://www.andadv.com/wp-content/uploads/2019/03/AMG_Since70-Bubble_E9C81C.svg"
+				alt=""
+				class="bubble-bg hidden"
+				id="yellow-bubble"
+			/>
+			<img
+				src="https://www.andadv.com/wp-content/uploads/2019/03/AMG_Since70-Bubble_A9A427.svg"
+				alt=""
+				class="bubble-bg hidden"
+				id="green-bubble"
+			/>
+			<img
+				src="https://www.andadv.com/wp-content/uploads/2019/03/AMG_Since70-Bubble_22415A.svg"
+				alt=""
+				class="bubble-bg hidden"
+				id="blue-bubble"
 			/>
 			<div class="text-container" id="capabilities-heading">
-				<p class="heading">Capabilities</p>
+				<p class="heading hidden">Capabilities</p>
 				<ul>
-					<li class="paragraph-text">
+					<li class="paragraph-text hidden">
 						Account Management and Strategic Planning
 					</li>
-					<li class="paragraph-text">Branding and Identity Development</li>
-					<li class="paragraph-text">Collateral Development</li>
-					<li class="paragraph-text">Creative Development</li>
-					<li class="paragraph-text">Database Marketing</li>
-					<li class="paragraph-text">Digital Marketing</li>
-					<li class="paragraph-text">Event Marketing</li>
-					<li class="paragraph-text">Marketing Research & Analysis</li>
-					<li class="paragraph-text">Media Planning and Buying</li>
-					<li class="paragraph-text">Retail Sales Promotion</li>
-					<li class="paragraph-text">Social Media Marketing</li>
-					<li class="paragraph-text">Video Production</li>
-					<li class="paragraph-text">Web Design</li>
+					<li class="paragraph-text hidden">
+						Branding and Identity Development
+					</li>
+					<li class="paragraph-text hidden">Collateral Development</li>
+					<li class="paragraph-text hidden">Creative Development</li>
+					<li class="paragraph-text hidden">Database Marketing</li>
+					<li class="paragraph-text hidden">Digital Marketing</li>
+					<li class="paragraph-text hidden">Event Marketing</li>
+					<li class="paragraph-text hidden">Marketing Research & Analysis</li>
+					<li class="paragraph-text hidden">Media Planning and Buying</li>
+					<li class="paragraph-text hidden">Retail Sales Promotion</li>
+					<li class="paragraph-text hidden">Social Media Marketing</li>
+					<li class="paragraph-text hidden">Video Production</li>
+					<li class="paragraph-text hidden">Web Design</li>
 				</ul>
 			</div>
 		</section>
 		<section class="collaborate">
 			<div class="form">
-				<p class="heading">Let's Collaborate</p>
+				<p class="heading hidden">Let's Collaborate</p>
 				<form action="action.php">
 					<input placeholder="YOUR NAME" class="text-input" type="text" />
 					<input placeholder="COMPANY NAME" class="text-input" type="text" />
 					<input placeholder="EMAIL" class="text-input" type="email" />
-					<select name="genres" id="dropdown">
-						<option value="interest" selected>I Am Interested In:</option>
-						<option value="account">Account Management</option>
-						<option value="branding">Branding and Identity Development</option>
-						<option value="collateral">Collateral Development</option>
-					</select>
-					<input class="submit" type="submit" value="Let's Talk" />
+					<div class="custom-select">
+						<select name="genres" id="dropdown">
+							<option value="interest" selected>I Am Interested In:</option>
+							<option value="account">Account Management</option>
+							<option value="branding"
+								>Branding and Identity Development</option
+							>
+							<option value="collateral">Collateral Development</option>
+							<option value="interest" selected>I Am Interested In:</option>
+							<option value="account">Account Management</option>
+							<option value="branding"
+								>Branding and Identity Development</option
+							>
+							<option value="collateral">Collateral Development</option>
+							<option value="interest" selected>I Am Interested In:</option>
+							<option value="account">Account Management</option>
+							<option value="branding"
+								>Branding and Identity Development</option
+							>
+							<option value="collateral">Collateral Development</option>
+							<option value="interest" selected>I Am Interested In:</option>
+							<option value="account">Account Management</option>
+							<option value="branding"
+								>Branding and Identity Development</option
+							>
+							<option value="collateral">Collateral Development</option>
+						</select>
+					</div>
+					<input class="lets-talk" type="submit" value="Let's Talk" />
 				</form>
 			</div>
 		</section>
@@ -121,5 +181,126 @@
 				/></a>
 			</div>
 		</footer>
+		<script>
+			var animateHTML = function() {
+				var elems;
+				var windowHeight;
+				function init() {
+					elems = window.document.querySelectorAll(".hidden");
+					windowHeight = window.innerHeight;
+					addEventHandlers();
+					checkPosition();
+				}
+				function addEventHandlers() {
+					window.addEventListener("scroll", checkPosition);
+					window.addEventListener("resize", init);
+				}
+				function checkPosition() {
+					for (var i = 0; i < elems.length; i++) {
+						var positionFromTop = elems[i].getBoundingClientRect().top;
+						if (positionFromTop - windowHeight <= -200) {
+							if (elems[i].classList.contains("heading")) {
+								elems[i].className = elems[i].className.replace(
+									"hidden",
+									"fromTop"
+								);
+							} else if (elems[i].classList.contains("paragraph-text")) {
+								elems[i].className = elems[i].className.replace(
+									"hidden",
+									"slideLeft"
+								);
+							} else {
+								elems[i].className = elems[i].className.replace(
+									"hidden",
+									"fadeIn-bubble"
+								);
+							}
+						}
+					}
+				}
+				return {
+					init: init
+				};
+			};
+			animateHTML().init();
+
+			var x, i, j, selElmnt, a, b, c;
+			/* Look for any elements with the class "custom-select": */
+			x = window.document.getElementsByClassName("custom-select");
+			for (i = 0; i < x.length; i++) {
+				selElmnt = x[i].getElementsByTagName("select")[0];
+				/* For each element, create a new DIV that will act as the selected item: */
+				a = window.document.createElement("DIV");
+				a.setAttribute("class", "select-selected");
+				a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+				x[i].appendChild(a);
+				/* For each element, create a new DIV that will contain the option list: */
+				b = window.document.createElement("DIV");
+				b.setAttribute("class", "select-items select-hide");
+				for (j = 1; j < selElmnt.length; j++) {
+					/* For each option in the original select element,
+				create a new DIV that will act as an option item: */
+					c = window.document.createElement("DIV");
+					c.innerHTML = selElmnt.options[j].innerHTML;
+					c.addEventListener("click", function(e) {
+						/* When an item is clicked, update the original select box,
+					and the selected item: */
+						var y, i, k, s, h;
+						s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+						h = this.parentNode.previousSibling;
+						for (i = 0; i < s.length; i++) {
+							if (s.options[i].innerHTML == this.innerHTML) {
+								s.selectedIndex = i;
+								h.innerHTML = this.innerHTML;
+								y = this.parentNode.getElementsByClassName("same-as-selected");
+								for (k = 0; k < y.length; k++) {
+									y[k].removeAttribute("class");
+								}
+								this.setAttribute("class", "same-as-selected");
+								break;
+							}
+						}
+						h.click();
+					});
+					b.appendChild(c);
+				}
+				x[i].appendChild(b);
+				a.addEventListener("click", function(e) {
+					/* When the select box is clicked, close any other select boxes,
+				and open/close the current select box: */
+					e.stopPropagation();
+					closeAllSelect(this);
+					this.nextSibling.classList.toggle("select-hide");
+					this.classList.toggle("select-arrow-active");
+				});
+			}
+
+			function closeAllSelect(elmnt) {
+				/* A function that will close all select boxes in the document,
+			except the current select box: */
+				var x,
+					y,
+					i,
+					arrNo = [];
+				x = window.document.getElementsByClassName("select-items");
+				y = window.document.getElementsByClassName("select-selected");
+				for (i = 0; i < y.length; i++) {
+					if (elmnt == y[i]) {
+						arrNo.push(i);
+					} else {
+						y[i].classList.remove("select-arrow-active");
+					}
+				}
+				for (i = 0; i < x.length; i++) {
+					if (arrNo.indexOf(i)) {
+						x[i].classList.add("select-hide");
+					}
+				}
+			}
+
+			/* If the user clicks anywhere outside the select box,
+			then close all select boxes: */
+			window.document.addEventListener("click", closeAllSelect);
+		</script>
 	</body>
 </html>

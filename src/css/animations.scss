@@ -1,26 +1,44 @@
-@import "mixins";
+// @import "mixins";
 
-@include keyframes(tiny-hovering) {
-	to {
-		bottom: 1%;
-	}
-}
+// @include keyframes(tiny-hovering) {
+// 	to {
+// 		bottom: 1%;
+// 	}
+// }
 
-@include keyframes(hovering) {
-	to {
-		bottom: 3%;
-	}
-}
+// @include keyframes(hovering) {
+// 	to {
+// 		bottom: 3%;
+// 	}
+// }
 
-@include keyframes(mobile-intro) {
-	from {
-		transform: translateY(30%);
-		opacity: 0;
-	}
-}
+// @include keyframes(mobile-intro) {
+// 	from {
+// 		transform: translateY(40%);
+// 		opacity: 0;
+// 	}
+// }
 
-@include keyframes(fadeIn) {
-	to {
-		opacity: 1;
-	}
-}
+// @include keyframes(fadeIn) {
+// 	to {
+// 		opacity: 1;
+// 	}
+// }
+
+// @include keyframes(pulsate) {
+// 	50% {
+// 		width: 150rem;
+// 	}
+// 	100% {
+// 		width: 135rem;
+// 	}
+// }
+
+// @include keyframes(bubblePulse) {
+// 	50% {
+// 		width: 180%;
+// 	}
+// 	100% {
+// 		width: 170%;
+// 	}
+// }
