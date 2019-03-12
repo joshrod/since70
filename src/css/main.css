@@ -420,49 +420,82 @@ ul {
   }
 }
 
-.collaborate .form {
+.collaborate .form-container {
   -webkit-perspective: 1000px;
           perspective: 1000px;
   position: relative;
-}
-
-.collaborate .form-front,
-.collaborate .form-back {
   width: 100%;
   max-width: 36rem;
+  min-height: 48rem;
   margin-left: auto;
   margin-right: auto;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  position: absolute;
-  top: 0;
-  left: 0;
+  background-color: transparent;
+}
+
+@media only screen and (min-width: 360px) {
+  .collaborate .form-container {
+    min-height: 43rem;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-  .collaborate .form-front,
-  .collaborate .form-back {
+  .collaborate .form-container {
     width: 45%;
     max-width: 60rem;
   }
 }
 
+.collaborate .form {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.8s;
+  transition: -webkit-transform 0.8s;
+  transition: transform 0.8s;
+  transition: transform 0.8s, -webkit-transform 0.8s;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  background-color: #fbf4d2;
+  min-height: 48rem;
+  background-color: transparent;
+}
+
+@media only screen and (min-width: 360px) {
+  .collaborate .form {
+    min-height: 43rem;
+  }
+}
+
+.collaborate .flip-form {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.collaborate .form-front,
+.collaborate .form-back {
+  width: 100%;
+  height: 100%;
+  background-color: #fbf4d2;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+}
+
 .collaborate .form-front {
   z-index: 2;
-  -webkit-transform: rotateY(0deg);
-          transform: rotateY(0deg);
 }
 
 .collaborate .form-back {
   text-align: center;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+  z-index: 1;
 }
 
 .collaborate .form-back .paragraph-text {
   color: #22415a;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .collaborate .heading {
@@ -476,11 +509,10 @@ ul {
 }
 
 .collaborate .work-button {
-  display: none;
   width: 13rem;
   margin: 2rem auto;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding: 1rem;
+  display: block;
   font-family: "Roboto Condensed", Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   color: white;
@@ -658,7 +690,7 @@ ul {
 }
 
 .collaborate form .wpcf7-response-output {
-  margin-top: 3rem;
+  margin-top: 0;
   text-align: center;
   margin-bottom: 2rem;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
